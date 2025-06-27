@@ -8,7 +8,7 @@
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Quicksand&display=swap" rel="stylesheet">
 
-  <!-- Confetti Library -->
+  <!-- Confetti -->
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
   <style>
@@ -18,7 +18,8 @@
       background: linear-gradient(to bottom right, #ffe6f0, #ffccf2);
       font-family: 'Quicksand', sans-serif;
       color: #4d004d;
-      overflow: hidden;
+      overflow-x: hidden;
+      overflow-y: auto;
     }
 
     .container {
@@ -50,6 +51,7 @@
       align-items: center;
       gap: 20px;
       flex-wrap: wrap;
+      margin-bottom: 100px;
     }
 
     .footer-box {
@@ -77,46 +79,9 @@
       transform: scale(1.1);
       background-color: #ffcce6;
     }
-
-    .floating {
-      position: absolute;
-      font-size: 20px;
-      opacity: 0.7;
-      animation: floatRandom 10s infinite ease-in-out;
-    }
-
-    @keyframes floatRandom {
-      0% {
-        transform: translate(0, 0) rotate(0deg);
-        opacity: 0.5;
-      }
-      50% {
-        transform: translate(30px, 50px) rotate(180deg);
-        opacity: 0.8;
-      }
-      100% {
-        transform: translate(-20px, 100vh) rotate(360deg);
-        opacity: 0.5;
-      }
-    }
   </style>
 </head>
 <body>
-
-<!-- Floating Stars and Ribbons -->
-<script>
-  const emojis = ['⭐', '🎀'];
-  for (let i = 0; i < 20; i++) {
-    const el = document.createElement('div');
-    el.className = 'floating';
-    el.innerText = emojis[Math.floor(Math.random() * emojis.length)];
-    el.style.left = Math.random() * 100 + 'vw';
-    el.style.top = -Math.random() * 100 + 'px';
-    el.style.animationDuration = 6 + Math.random() * 5 + 's';
-    el.style.fontSize = 14 + Math.random() * 10 + 'px';
-    document.body.appendChild(el);
-  }
-</script>
 
 <div class="container">
   <h1>🎉 Happy Birthday Princess 🎉</h1>
@@ -148,17 +113,17 @@
       origin: { y: 0.6 }
     });
 
-    // Light continuous confetti rain
+    // Continuous soft confetti rain
     setInterval(() => {
       confetti({
-        particleCount: 2,
+        particleCount: 10,
         angle: 60,
         spread: 55,
         origin: { x: 0 },
         colors: ['#ff99cc', '#ffcce6', '#ffb6c1']
       });
       confetti({
-        particleCount: 2,
+        particleCount: 10,
         angle: 120,
         spread: 55,
         origin: { x: 1 },
@@ -167,10 +132,10 @@
     }, 250);
   };
 
-  // Manual confetti blast from buttons
+  // Manual confetti blast from button
   function blastConfetti() {
     confetti({
-      particleCount: 100,
+      particleCount: 300,
       spread: 80,
       origin: { y: 0.7 }
     });
