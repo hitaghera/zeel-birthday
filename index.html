@@ -3,36 +3,88 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Pharma Exam?</title>
+  <title>Age Confirmation</title>
+
   <style>
     body {
-      background: #ffe0f0;
-      font-family: 'Comic Sans MS', cursive;
+      margin: 0;
+      padding: 0;
+      font-family: 'Georgia', serif;
+      background-color: #fef9f4;
+      background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 25%, transparent 25%),
+                        linear-gradient(225deg, rgba(255, 255, 255, 0.1) 25%, transparent 25%);
+      background-size: 20px 20px;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .box {
+      background-color: #fbe3c8;
+      padding: 30px 40px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
       text-align: center;
-      padding: 50px;
+      max-width: 90%;
+      width: 300px;
     }
-    h1 {
-      font-size: 2em;
-      color: #d63384;
+
+    .box h2 {
+      margin-bottom: 20px;
+      color: #5b4c3b;
     }
-    button {
-      margin: 20px;
-      padding: 10px 20px;
-      font-size: 1em;
-      background-color: #ff80b3;
+
+    .buttons {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .buttons button {
+      flex: 1;
+      padding: 10px 0;
+      background-color: #f6b26b;
       border: none;
-      border-radius: 10px;
-      color: white;
+      border-radius: 8px;
+      color: #fff;
+      font-size: 1rem;
+      font-weight: bold;
       cursor: pointer;
+      transition: background-color 0.3s ease;
     }
-    button:hover {
-      background-color: #ff4da6;
+
+    .buttons button:hover {
+      background-color: #e69138;
     }
   </style>
 </head>
 <body>
-  <h1>Don't you have upcoming pharmacology exam?<br/>Have you completed your course?</h1>
-  <button onclick="location.href='page2.html'">Yes</button>
-  <button onclick="location.href='page2.html'">Obviously Yes</button>
+  <div class="box" id="firstBox">
+    <h2>You have Pharmacology exam.<br>Have you completedyour cource ?</h2>
+    <div class="buttons">
+      <button onclick="showSecondBox()">Yes</button>
+      <button onclick="showSecondBox()">Obviously Yes</button>
+    </div>
+  </div>
+
+  <div class="box" id="secondBox" style="display: none;">
+    <h2>Its 28th june is there something special ?</h2>
+    <div class="buttons">
+      <button onclick="goToPage2()">Yes</button>
+      <button onclick="window.close()">No</button>
+    </div>
+  </div>
+
+  <script>
+    function showSecondBox() {
+      document.getElementById("firstBox").style.display = "none";
+      document.getElementById("secondBox").style.display = "block";
+    }
+
+    function goToPage2() {
+      window.location.href = "page2.html"; // Change this if needed
+    }
+  </script>
 </body>
 </html>
